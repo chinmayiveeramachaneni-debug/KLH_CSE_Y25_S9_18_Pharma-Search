@@ -1,4 +1,4 @@
-Pharma Serach 
+Pharma Search
 Likhitha - 2520030580
 Keerthana - 2520030168
 Chinmayi - 2520030144
