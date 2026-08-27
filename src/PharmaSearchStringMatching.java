@@ -52,8 +52,7 @@ public class PharmaSearchStringMatching {
             String text,
             String pattern) {
 
-        ArrayList<Integer> positions =
-                new ArrayList<>();
+        ArrayList<Integer> positions = new ArrayList<>();
 
         if (pattern == null || pattern.length() == 0) {
             return positions;
@@ -84,6 +83,7 @@ public class PharmaSearchStringMatching {
                 positions.add(i - j);
 
                 j = lps[j - 1];
+
             }
 
             // Mismatch
@@ -111,8 +111,7 @@ public class PharmaSearchStringMatching {
     // =========================================================
     public static String readCorpus(String filePath) {
 
-        StringBuilder corpus =
-                new StringBuilder();
+        StringBuilder corpus = new StringBuilder();
 
         try {
 
@@ -133,25 +132,16 @@ public class PharmaSearchStringMatching {
         } catch (FileNotFoundException e) {
 
             System.out.println();
-            System.out.println(
-                    "ERROR: Corpus file not found!");
-
-            System.out.println(
-                    "Expected file location:");
-
+            System.out.println("ERROR: Corpus file not found!");
+            System.out.println("Expected file location:");
             System.out.println(filePath);
-
             System.out.println();
 
         } catch (IOException e) {
 
             System.out.println();
-            System.out.println(
-                    "ERROR: Could not read corpus file.");
-
-            System.out.println(
-                    e.getMessage());
-
+            System.out.println("ERROR: Could not read corpus file.");
+            System.out.println(e.getMessage());
             System.out.println();
         }
 
@@ -160,90 +150,47 @@ public class PharmaSearchStringMatching {
 
 
     // =========================================================
-    // DISPLAY COMPLETE MEDICINE INFORMATION
+    // DISPLAY MATCHING SENTENCES
     // =========================================================
-    public static void displayMatchingMedicine(
+    public static void displayMatchingSentences(
             String corpus,
             String query) {
 
-        /*
-         * Each medicine record starts with:
-         *
-         * MEDICINE:
-         *
-         * Example:
-         *
-         * MEDICINE: Paracetamol
-         * CATEGORY: Analgesic and Antipyretic
-         * USES: ...
-         * DOSAGE: ...
-         * SIDE EFFECTS: ...
-         * PRECAUTIONS: ...
-         *
-         * The next MEDICINE: starts a new record.
-         */
+        // Split corpus into sentences
+        String[] sentences =
+                corpus.split("(?<=[.!?])\\s+");
 
-        String[] medicineRecords =
-                corpus.split("(?=MEDICINE:)");
-
-        int medicineNumber = 0;
+        int sentenceNumber = 0;
 
         System.out.println();
-        System.out.println(
-                "========== MATCHING MEDICINE INFORMATION ==========");
+        System.out.println("========== MATCHING SENTENCES ==========");
 
-        for (String record : medicineRecords) {
-
-            // Ignore empty records
-            if (record.trim().isEmpty()) {
-                continue;
-            }
-
-            /*
-             * Search the COMPLETE medicine record.
-             *
-             * This means if the query is found anywhere
-             * inside the record, the complete medicine
-             * information will be displayed.
-             */
+        for (String sentence : sentences) {
 
             ArrayList<Integer> matches =
-                    KMPSearch(record, query);
+                    KMPSearch(sentence, query);
 
             if (!matches.isEmpty()) {
 
-                medicineNumber++;
+                sentenceNumber++;
 
                 System.out.println();
-
                 System.out.println(
-                        "Medicine " + medicineNumber);
-
-                System.out.println(
-                        "--------------------------------------------------");
-
-                System.out.println(
-                        record.trim());
-
-                System.out.println(
-                        "--------------------------------------------------");
+                        sentenceNumber + ". "
+                                + sentence.trim());
             }
         }
 
-        // No medicine found
-        if (medicineNumber == 0) {
+        if (sentenceNumber == 0) {
 
             System.out.println();
-
             System.out.println(
-                    "No medicine information containing "
-                            + "the search term was found.");
+                    "No sentence containing the search term was found.");
         }
 
         System.out.println();
-
         System.out.println(
-                "===================================================");
+                "========================================");
     }
 
 
@@ -258,19 +205,13 @@ public class PharmaSearchStringMatching {
         }
 
         System.out.println();
+        System.out.println("Match positions in corpus:");
 
-        System.out.println(
-                "Match positions in pharmaceutical corpus:");
+        for (int i = 0; i < positions.size(); i++) {
 
-        for (int i = 0;
-             i < positions.size();
-             i++) {
-
-            System.out.print(
-                    positions.get(i));
+            System.out.print(positions.get(i));
 
             if (i < positions.size() - 1) {
-
                 System.out.print(", ");
             }
         }
@@ -284,16 +225,10 @@ public class PharmaSearchStringMatching {
     // =========================================================
     public static void main(String[] args) {
 
-        Scanner scanner =
-                new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
 
-
-        // =====================================================
-        // CORPUS FILE LOCATION
-        // =====================================================
-
-        String filePath =
-                "data/pharma_corpus.txt";
+        // Corpus file location
+        String filePath = "data/pharma_corpus.txt";
 
 
         // =====================================================
@@ -301,7 +236,6 @@ public class PharmaSearchStringMatching {
         // =====================================================
 
         System.out.println();
-
         System.out.println(
                 "==============================================");
 
@@ -322,20 +256,13 @@ public class PharmaSearchStringMatching {
         // LOAD CORPUS
         // =====================================================
 
-        String corpus =
-                readCorpus(filePath);
+        String corpus = readCorpus(filePath);
 
-
-        // =====================================================
-        // CHECK CORPUS
-        // =====================================================
 
         if (corpus.isEmpty()) {
 
             System.out.println(
                     "Corpus could not be loaded.");
-
-            System.out.println();
 
             System.out.println(
                     "Please check that this file exists:");
@@ -371,18 +298,16 @@ public class PharmaSearchStringMatching {
         while (true) {
 
             System.out.println();
-
             System.out.println(
                     "----------------------------------------------");
 
             System.out.print(
-                    "Enter a medicine name to search");
+                    "Enter a medicine or keyword to search");
 
             System.out.print(
                     " (type 'exit' to stop): ");
 
-            String query =
-                    scanner.nextLine();
+            String query = scanner.nextLine();
 
 
             // =================================================
@@ -392,8 +317,7 @@ public class PharmaSearchStringMatching {
             if (query.equalsIgnoreCase("exit")) {
 
                 System.out.println();
-
-                System.out.println(
+System.out.println(
                         "Thank you for using Pharma Search!");
 
                 break;
@@ -409,20 +333,18 @@ public class PharmaSearchStringMatching {
                 System.out.println();
 
                 System.out.println(
-                        "Please enter a valid medicine name.");
+                        "Please enter a valid medicine or keyword.");
 
                 continue;
             }
 
 
             // =================================================
-            // RUN KMP ON COMPLETE CORPUS
+            // RUN KMP
             // =================================================
 
             ArrayList<Integer> positions =
-                    KMPSearch(
-                            corpus,
-                            query);
+                    KMPSearch(corpus, query);
 
 
             // =================================================
@@ -435,50 +357,35 @@ public class PharmaSearchStringMatching {
                     "============== SEARCH RESULT ==============");
 
             System.out.println(
-                    "Search Query : "
-                            + query);
+                    "Search Query : " + query);
 
             System.out.println(
                     "Matches Found: "
                             + positions.size());
 
 
-            // =================================================
-            // MEDICINE FOUND
-            // =================================================
-
             if (!positions.isEmpty()) {
 
                 System.out.println(
-                        "Status       : MEDICINE FOUND");
+                        "Status       : MATCH FOUND");
 
+                // Display positions
+                displayMatchPositions(positions);
 
-                // Display KMP match positions
-                displayMatchPositions(
-                        positions);
-
-
-                // Display COMPLETE medicine information
-                displayMatchingMedicine(
+                // Display matching sentences
+                displayMatchingSentences(
                         corpus,
                         query);
 
-
-            }
-
-            // =================================================
-            // MEDICINE NOT FOUND
-            // =================================================
-
-            else {
+            } else {
 
                 System.out.println(
-                        "Status       : MEDICINE NOT FOUND");
+                        "Status       : NO MATCH FOUND");
 
                 System.out.println();
 
                 System.out.println(
-                        "Try another medicine such as:");
+                        "Try another pharmaceutical term such as:");
 
                 System.out.println(
                         "paracetamol");
@@ -490,19 +397,19 @@ public class PharmaSearchStringMatching {
                         "ibuprofen");
 
                 System.out.println(
-                        "azithromycin");
+                        "antibiotic");
 
                 System.out.println(
-                        "cetirizine");
+                        "fever");
 
                 System.out.println(
-                        "omeprazole");
+                        "pain");
 
                 System.out.println(
-                        "metformin");
+                        "diabetes");
 
                 System.out.println(
-                        "amlodipine");
+                        "blood pressure");
             }
 
 
