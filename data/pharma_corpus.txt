@@ -1,0 +1,111 @@
+MEDICINE: Paracetamol
+CATEGORY: Analgesic and Antipyretic
+USES: Used for reducing fever and relieving mild to moderate pain.
+DOSAGE: Follow the dosage recommended by a qualified healthcare professional.
+SIDE EFFECTS: Nausea, headache, or allergic reactions may occur.
+PRECAUTIONS: Do not exceed the recommended dose.
+
+MEDICINE: Ibuprofen
+CATEGORY: Non-Steroidal Anti-Inflammatory Drug
+USES: Used for relieving pain, reducing fever, and reducing inflammation.
+DOSAGE: Follow the dosage recommended by a qualified healthcare professional.
+SIDE EFFECTS: Stomach discomfort, nausea, dizziness, or headache may occur.
+PRECAUTIONS: Use according to medical advice.
+
+MEDICINE: Amoxicillin
+CATEGORY: Antibiotic
+USES: Used to treat certain bacterial infections.
+DOSAGE: Take only according to the prescription provided by a healthcare professional.
+SIDE EFFECTS: Nausea, diarrhea, or skin rash may occur.
+PRECAUTIONS: Inform the healthcare professional about known allergies.
+
+MEDICINE: Azithromycin
+CATEGORY: Antibiotic
+USES: Used to treat certain bacterial infections.
+DOSAGE: Use only according to medical advice.
+SIDE EFFECTS: Nausea, diarrhea, abdominal discomfort, or headache may occur.
+PRECAUTIONS: Complete the prescribed course as directed.
+
+MEDICINE: Cetirizine
+CATEGORY: Antihistamine
+USES: Used to relieve allergy symptoms such as sneezing, runny nose, and itching.
+DOSAGE: Follow the recommended dosage on the medicine label or medical advice.
+SIDE EFFECTS: Drowsiness, dry mouth, or headache may occur.
+PRECAUTIONS: Avoid activities requiring alertness if drowsiness occurs.
+
+MEDICINE: Omeprazole
+CATEGORY: Proton Pump Inhibitor
+USES: Used to reduce stomach acid and manage certain acid-related conditions.
+DOSAGE: Take according to healthcare professional's instructions.
+SIDE EFFECTS: Headache, nausea, or stomach discomfort may occur.
+PRECAUTIONS: Follow the prescribed instructions.
+
+MEDICINE: Metformin
+CATEGORY: Antidiabetic Medicine
+USES: Commonly used to help control blood glucose levels in type 2 diabetes.
+DOSAGE: Use according to the dosage prescribed by a healthcare professional.
+SIDE EFFECTS: Nausea, diarrhea, or stomach discomfort may occur.
+PRECAUTIONS: Follow medical advice and prescribed dosage.
+
+MEDICINE: Amlodipine
+CATEGORY: Antihypertensive Medicine
+USES: Commonly used to help control high blood pressure.
+DOSAGE: Take according to the prescribed dosage.
+SIDE EFFECTS: Dizziness, headache, or swelling may occur.
+PRECAUTIONS: Follow the instructions provided by a healthcare professional.
+
+MEDICINE: Pantoprazole
+CATEGORY: Proton Pump Inhibitor
+USES: Used to reduce stomach acid and manage certain acid-related conditions.
+DOSAGE: Follow the dosage recommended by a healthcare professional.
+SIDE EFFECTS: Headache, nausea, or abdominal discomfort may occur.
+PRECAUTIONS: Use according to medical advice.
+
+MEDICINE: Diclofenac
+CATEGORY: Non-Steroidal Anti-Inflammatory Drug
+USES: Used to relieve pain and inflammation in certain conditions.
+DOSAGE: Use only according to medical advice.
+SIDE EFFECTS: Stomach discomfort, nausea, or dizziness may occur.
+PRECAUTIONS: Follow the prescribed dosage.
+
+MEDICINE: Loratadine
+CATEGORY: Antihistamine
+USES: Used to relieve symptoms associated with allergies.
+DOSAGE: Follow the dosage instructions provided by a healthcare professional.
+SIDE EFFECTS: Headache, dry mouth, or tiredness may occur.
+PRECAUTIONS: Follow recommended usage instructions.
+
+MEDICINE: Doxycycline
+CATEGORY: Antibiotic
+USES: Used to treat certain bacterial infections.
+DOSAGE: Take only as prescribed by a healthcare professional.
+SIDE EFFECTS: Nausea, stomach discomfort, or sensitivity to sunlight may occur.
+PRECAUTIONS: Follow medical advice and prescribed instructions.
+
+MEDICINE: Salbutamol
+CATEGORY: Bronchodilator
+USES: Used to help relieve breathing difficulties associated with certain respiratory conditions.
+DOSAGE: Use according to healthcare professional's instructions.
+SIDE EFFECTS: Tremor, headache, or increased heart rate may occur.
+PRECAUTIONS: Use only as directed.
+
+MEDICINE: Atorvastatin
+CATEGORY: Statin
+USES: Used to help lower cholesterol levels.
+DOSAGE: Take according to the prescribed dosage.
+SIDE EFFECTS: Muscle discomfort, headache, or digestive problems may occur.
+PRECAUTIONS: Follow medical advice.
+
+MEDICINE: Levothyroxine
+CATEGORY: Thyroid Medicine
+USES: Used to replace thyroid hormone when the body does not produce enough thyroid hormone.
+DOSAGE: Take according to the prescribed instructions.
+SIDE EFFECTS: Changes in heart rate, sweating, or nervousness may occur if the dose is inappropriate.
+PRECAUTIONS: Use only according to medical advice.
+
+MEDICINE: Aspirin
+CATEGORY: Analgesic and Antiplatelet Medicine
+USES: Used for certain pain conditions and, in specific situations, to reduce blood clot formation.
+DOSAGE: Use only according to healthcare professional's advice.
+SIDE EFFECTS: Stomach irritation, nausea, or bleeding may occur.
+PRECAUTIONS: Consult a healthcare professional before use.
