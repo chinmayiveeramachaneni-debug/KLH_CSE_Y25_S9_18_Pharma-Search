@@ -8,13 +8,16 @@ The proposed system brings this information together into a single, easy-to-use 
 Pharma Search aims to reduce the time spent searching through multiple sources and improve the accuracy of pharmaceutical information retrieval. By providing organized and easily accessible medicine data, the system can support pharmacists during medicine shortages, urgent situations, and routine pharmacy operations. The platform also demonstrates how intelligent search and structured data management can improve efficiency in healthcare environments.
 Hardware Requirements
 
+
 Processor: Intel Core i3 or above
 RAM: 4 GB minimum, 8 GB recommended
 Storage: 10 GB free space
 Internet connection
 Standard keyboard and mouse
 
+
 Software Requirements
+
 
 Operating System: Windows 10/11, Linux, or macOS
 Visual Studio Code
@@ -23,7 +26,9 @@ MongoDB
 MongoDB Compass
 Modern web browser such as Google Chrome or Microsoft Edge
 
+
 Technologies Used
+
 
 Frontend: HTML, CSS, JavaScript / React.js
 Backend: Node.js, Express.js
@@ -31,7 +36,9 @@ Database: MongoDB
 API: REST API
 Development Tool: Visual Studio Code
 
+
 Project Configuration
+
 
 Install Node.js and npm.
 Install MongoDB and MongoDB Compass.
@@ -55,13 +62,13 @@ Open the application in a web browser.
 Enter a medicine name in the search bar.
 Verify that the system retrieves and displays the required medicine information.
 Test alternative medicine and availability search functionality.
-Requirement Analysis: ✅ Completed
-System Design: ✅ Completed
-Technology Selection: ✅ Completed
-Database Design: 🔄 In Progress
-Frontend Development: 🔄 In Progress
-Backend/API Development: 🔄 In Progress
-Medicine Data Integration: 🔄 In Progress
+Requirement Analysis:  Completed
+System Design:  Completed
+Technology Selection: Completed
+Database Design:  In Progress
+Frontend Development:  In Progress
+Backend/API Development:  In Progress
+Medicine Data Integration:  In Progress
 Search & Alternative Medicine Feature: ⏳ Pending/Testing
 System Testing: ⏳ Pending
 Final Deployment: ⏳ Pending
