@@ -1,8 +1,12 @@
 Pharma Search
+
+Team members:
 Likhitha - 2520030580
 Keerthana - 2520030168
 Chinmayi - 2520030144
-DR.Vinay kumar
+
+Supervisor: Dr. S.Vinay Kumar
+
 Pharma Search is an intelligent and centralized medicine information search platform designed to help pharmacies, hospitals, pharmacists, and healthcare professionals quickly access essential pharmaceutical information. In healthcare environments, large amounts of data related to medicines, manufacturers, dosage guidelines, availability, composition, and substitute drugs are often scattered across different sources, making information retrieval time-consuming and error-prone.
 The proposed system brings this information together into a single, easy-to-use platform. Users can search for a medicine by its name and retrieve important details such as medicine composition, manufacturer, dosage information, uses, availability, and suitable alternatives. The system can also assist pharmacists in identifying substitute medicines when a particular drug is unavailable, helping them make faster and more informed decisions.
 Pharma Search aims to reduce the time spent searching through multiple sources and improve the accuracy of pharmaceutical information retrieval. By providing organized and easily accessible medicine data, the system can support pharmacists during medicine shortages, urgent situations, and routine pharmacy operations. The platform also demonstrates how intelligent search and structured data management can improve efficiency in healthcare environments.
