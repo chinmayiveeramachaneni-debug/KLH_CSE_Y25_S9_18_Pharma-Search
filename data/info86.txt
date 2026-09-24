@@ -1,0 +1,6 @@
+MEDICINE: Sitagliptin
+CATEGORY: Antidiabetic Medicine
+USES: Used to help control blood glucose levels in type 2 diabetes.
+DOSAGE: Take according to prescribed instructions.
+SIDE EFFECTS: Headache, stomach discomfort, or upper respiratory symptoms may occur.
+PRECAUTIONS: Use under professional medical guidance.
