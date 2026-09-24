@@ -1,0 +1,6 @@
+MEDICINE: Folic Acid
+CATEGORY: Vitamin Supplement
+USES: Used to prevent or treat folate deficiency.
+DOSAGE: Use according to prescribed or label instructions.
+SIDE EFFECTS: Nausea, bloating, or mild stomach discomfort may occur.
+PRECAUTIONS: Follow recommended usage.
