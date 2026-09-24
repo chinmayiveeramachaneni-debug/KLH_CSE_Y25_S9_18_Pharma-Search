@@ -1,0 +1,6 @@
+MEDICINE: Heparin
+CATEGORY: Anticoagulant
+USES: Used in clinical settings to help prevent or treat blood clots.
+DOSAGE: Use only under healthcare professional supervision.
+SIDE EFFECTS: Bleeding or injection-site reactions may occur.
+PRECAUTIONS: Requires professional monitoring.
