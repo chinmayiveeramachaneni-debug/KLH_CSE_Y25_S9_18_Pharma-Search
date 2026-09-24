@@ -1,0 +1,6 @@
+MEDICINE: Apixaban
+CATEGORY: Anticoagulant
+USES: Used in specific situations to prevent or treat blood clots.
+DOSAGE: Take according to prescribed instructions.
+SIDE EFFECTS: Bleeding, bruising, or nausea may occur.
+PRECAUTIONS: Consult a healthcare professional before changing treatment.
