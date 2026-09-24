@@ -1,0 +1,6 @@
+MEDICINE: Ferrous Sulfate
+CATEGORY: Iron Supplement
+USES: Used to treat or prevent iron deficiency when medically indicated.
+DOSAGE: Use according to healthcare professional's instructions.
+SIDE EFFECTS: Constipation, nausea, or dark stools may occur.
+PRECAUTIONS: Use according to professional advice.
