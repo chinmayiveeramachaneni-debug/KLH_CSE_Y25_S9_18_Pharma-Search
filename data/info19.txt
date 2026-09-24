@@ -1,0 +1,6 @@
+MEDICINE: Pantoprazole
+CATEGORY: Proton Pump Inhibitor
+USES: Used to reduce stomach acid and manage certain acid-related conditions.
+DOSAGE: Follow the dosage recommended by a healthcare professional.
+SIDE EFFECTS: Headache, nausea, or abdominal discomfort may occur.
+PRECAUTIONS: Use according to medical advice.
