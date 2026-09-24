@@ -1,0 +1,6 @@
+MEDICINE: Gliclazide
+CATEGORY: Antidiabetic Medicine
+USES: Used to help control blood glucose levels in type 2 diabetes.
+DOSAGE: Use according to medical advice.
+SIDE EFFECTS: Low blood glucose, nausea, or dizziness may occur.
+PRECAUTIONS: Monitor according to professional advice.
