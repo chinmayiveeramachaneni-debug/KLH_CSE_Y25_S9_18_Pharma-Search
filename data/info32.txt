@@ -1,0 +1,6 @@
+MEDICINE: Methimazole
+CATEGORY: Antithyroid Medicine
+USES: Used to reduce excessive thyroid hormone production in certain conditions.
+DOSAGE: Take only under healthcare professional supervision.
+SIDE EFFECTS: Nausea, rash, or changes in blood counts may occur.
+PRECAUTIONS: Seek medical advice for unusual symptoms.
