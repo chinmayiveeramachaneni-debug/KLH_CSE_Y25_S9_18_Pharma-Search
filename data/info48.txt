@@ -1,0 +1,6 @@
+MEDICINE: Fluconazole
+CATEGORY: Antifungal
+USES: Used to treat certain fungal infections.
+DOSAGE: Use only as prescribed.
+SIDE EFFECTS: Nausea, headache, or abdominal discomfort may occur.
+PRECAUTIONS: Inform the healthcare professional about other medicines.
