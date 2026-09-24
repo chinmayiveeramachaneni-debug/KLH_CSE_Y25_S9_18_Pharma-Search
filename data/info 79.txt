@@ -1,0 +1,6 @@
+MEDICINE: Fexofenadine
+CATEGORY: Antihistamine
+USES: Used to relieve symptoms associated with allergies.
+DOSAGE: Use according to label or professional advice.
+SIDE EFFECTS: Headache, nausea, or dizziness may occur.
+PRECAUTIONS: Follow recommended usage instructions.
