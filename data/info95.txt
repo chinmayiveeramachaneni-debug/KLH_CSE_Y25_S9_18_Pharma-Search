@@ -1,0 +1,6 @@
+MEDICINE: Aluminum Hydroxide
+CATEGORY: Antacid
+USES: Used to neutralize stomach acid and relieve certain symptoms of indigestion.
+DOSAGE: Use according to label or professional advice.
+SIDE EFFECTS: Constipation or stomach discomfort may occur.
+PRECAUTIONS: Separate from other medicines when advised by a professional.
