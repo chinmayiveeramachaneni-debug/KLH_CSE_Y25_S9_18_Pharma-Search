@@ -1,0 +1,6 @@
+MEDICINE: Cetirizine
+CATEGORY: Antihistamine
+USES: Used to relieve allergy symptoms such as sneezing, runny nose, and itching.
+DOSAGE: Follow the recommended dosage on the medicine label or medical advice.
+SIDE EFFECTS: Drowsiness, dry mouth, or headache may occur.
+PRECAUTIONS: Avoid activities requiring alertness if drowsiness occurs.
