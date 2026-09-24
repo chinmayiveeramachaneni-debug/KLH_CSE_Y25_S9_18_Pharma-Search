@@ -1,0 +1,6 @@
+MEDICINE: Metformin
+CATEGORY: Antidiabetic Medicine
+USES: Commonly used to help control blood glucose levels in type 2 diabetes.
+DOSAGE: Use according to the dosage prescribed by a healthcare professional.
+SIDE EFFECTS: Nausea, diarrhea, or stomach discomfort may occur.
+PRECAUTIONS: Follow medical advice and prescribed dosage.
