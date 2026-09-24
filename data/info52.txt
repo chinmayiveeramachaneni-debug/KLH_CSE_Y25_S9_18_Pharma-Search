@@ -1,0 +1,6 @@
+MEDICINE: Budesonide
+CATEGORY: Corticosteroid
+USES: Used to reduce inflammation in certain respiratory or gastrointestinal conditions.
+DOSAGE: Use according to prescribed instructions.
+SIDE EFFECTS: Throat irritation, headache, or cough may occur.
+PRECAUTIONS: Do not change the prescribed use without medical advice.
