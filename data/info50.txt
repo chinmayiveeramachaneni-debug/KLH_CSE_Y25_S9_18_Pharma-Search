@@ -1,0 +1,6 @@
+MEDICINE: Oseltamivir
+CATEGORY: Antiviral
+USES: Used for treatment or prevention of certain influenza infections.
+DOSAGE: Use according to healthcare professional's advice.
+SIDE EFFECTS: Nausea, vomiting, or headache may occur.
+PRECAUTIONS: Follow prescribed instructions.
