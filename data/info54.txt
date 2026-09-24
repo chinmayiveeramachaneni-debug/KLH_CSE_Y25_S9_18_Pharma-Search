@@ -1,0 +1,6 @@
+MEDICINE: Dexamethasone
+CATEGORY: Corticosteroid
+USES: Used to reduce inflammation and manage certain medical conditions.
+DOSAGE: Use only as prescribed.
+SIDE EFFECTS: Stomach discomfort, increased appetite, or sleep changes may occur.
+PRECAUTIONS: Follow professional instructions carefully.
