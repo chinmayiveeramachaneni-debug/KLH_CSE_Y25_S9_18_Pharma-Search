@@ -1,0 +1,6 @@
+MEDICINE: Cefuroxime
+CATEGORY: Antibiotic
+USES: Used to treat certain bacterial infections.
+DOSAGE: Use according to medical advice.
+SIDE EFFECTS: Nausea, diarrhea, or abdominal discomfort may occur.
+PRECAUTIONS: Follow the prescribed course.
