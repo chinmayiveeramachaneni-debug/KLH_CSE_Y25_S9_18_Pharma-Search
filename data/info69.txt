@@ -1,0 +1,6 @@
+MEDICINE: Clopidogrel
+CATEGORY: Antiplatelet Medicine
+USES: Used in specific situations to help reduce blood clot formation.
+DOSAGE: Take only according to healthcare professional's advice.
+SIDE EFFECTS: Bruising, stomach discomfort, or bleeding may occur.
+PRECAUTIONS: Inform professionals about unusual bleeding.
