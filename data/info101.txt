@@ -1,0 +1,6 @@
+MEDICINE: Lactulose
+CATEGORY: Laxative
+USES: Used to relieve constipation and in specific liver-related conditions.
+DOSAGE: Use according to healthcare professional's instructions.
+SIDE EFFECTS: Bloating, gas, or diarrhea may occur.
+PRECAUTIONS: Follow prescribed or label instructions.
