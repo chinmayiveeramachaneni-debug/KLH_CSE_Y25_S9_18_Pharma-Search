@@ -1,0 +1,6 @@
+MEDICINE: Nitroglycerin
+CATEGORY: Nitrate
+USES: Used to relieve certain types of chest pain under medical guidance.
+DOSAGE: Use according to prescribed instructions.
+SIDE EFFECTS: Headache, dizziness, or flushing may occur.
+PRECAUTIONS: Use only as directed by a healthcare professional.
