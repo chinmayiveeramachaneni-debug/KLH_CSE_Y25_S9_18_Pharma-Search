@@ -1,0 +1,6 @@
+MEDICINE: Famotidine
+CATEGORY: Histamine-2 Receptor Antagonist
+USES: Used to reduce stomach acid and manage certain acid-related conditions.
+DOSAGE: Use according to professional instructions.
+SIDE EFFECTS: Headache, dizziness, or stomach discomfort may occur.
+PRECAUTIONS: Follow recommended medical use.
