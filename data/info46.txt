@@ -1,0 +1,6 @@
+MEDICINE: Nitrofurantoin
+CATEGORY: Urinary Antibacterial
+USES: Used to treat certain urinary tract infections.
+DOSAGE: Take only as prescribed.
+SIDE EFFECTS: Nausea, headache, or stomach discomfort may occur.
+PRECAUTIONS: Use according to medical advice.
