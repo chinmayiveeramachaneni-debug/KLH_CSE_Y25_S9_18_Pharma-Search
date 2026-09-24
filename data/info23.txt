@@ -1,0 +1,6 @@
+MEDICINE: Doxycycline
+CATEGORY: Antibiotic
+USES: Used to treat certain bacterial infections.
+DOSAGE: Take only as prescribed by a healthcare professional.
+SIDE EFFECTS: Nausea, stomach discomfort, or sensitivity to sunlight may occur.
+PRECAUTIONS: Follow medical advice and prescribed instructions.
