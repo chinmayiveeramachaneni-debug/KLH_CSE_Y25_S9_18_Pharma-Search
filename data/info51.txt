@@ -1,0 +1,6 @@
+MEDICINE: Montelukast
+CATEGORY: Leukotriene Receptor Antagonist
+USES: Used to help manage certain asthma and allergy symptoms.
+DOSAGE: Take according to medical advice.
+SIDE EFFECTS: Headache, abdominal discomfort, or tiredness may occur.
+PRECAUTIONS: Use only as directed.
