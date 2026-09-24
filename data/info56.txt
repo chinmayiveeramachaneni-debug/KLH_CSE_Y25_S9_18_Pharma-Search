@@ -1,0 +1,6 @@
+MEDICINE: Furosemide
+CATEGORY: Diuretic
+USES: Used to help remove excess fluid and manage certain conditions.
+DOSAGE: Take according to prescribed dosage.
+SIDE EFFECTS: Dizziness, increased urination, or dehydration may occur.
+PRECAUTIONS: Follow medical advice and maintain appropriate monitoring.
