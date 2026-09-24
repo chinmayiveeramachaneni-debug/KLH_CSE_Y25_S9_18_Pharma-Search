@@ -1,0 +1,6 @@
+MEDICINE: Warfarin
+CATEGORY: Anticoagulant
+USES: Used in specific situations to reduce blood clot formation.
+DOSAGE: Dose must be determined and monitored by a healthcare professional.
+SIDE EFFECTS: Bruising or bleeding may occur.
+PRECAUTIONS: Requires professional monitoring and careful use.
