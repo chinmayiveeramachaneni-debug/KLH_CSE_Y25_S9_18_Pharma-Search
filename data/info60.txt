@@ -1,0 +1,6 @@
+MEDICINE: Fluticasone
+CATEGORY: Corticosteroid
+USES: Used to reduce inflammation in certain respiratory or allergic conditions.
+DOSAGE: Use according to prescribed instructions.
+SIDE EFFECTS: Throat irritation, hoarseness, or headache may occur.
+PRECAUTIONS: Use only as directed.
