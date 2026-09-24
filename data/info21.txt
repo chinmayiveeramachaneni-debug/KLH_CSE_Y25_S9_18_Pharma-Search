@@ -1,0 +1,6 @@
+MEDICINE: Loratadine
+CATEGORY: Antihistamine
+USES: Used to relieve symptoms associated with allergies.
+DOSAGE: Follow the dosage instructions provided by a healthcare professional.
+SIDE EFFECTS: Headache, dry mouth, or tiredness may occur.
+PRECAUTIONS: Follow recommended usage instructions.
