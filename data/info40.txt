@@ -1,0 +1,6 @@
+MEDICINE: Clarithromycin
+CATEGORY: Antibiotic
+USES: Used to treat certain bacterial infections.
+DOSAGE: Use according to the prescribed instructions.
+SIDE EFFECTS: Nausea, diarrhea, or abdominal discomfort may occur.
+PRECAUTIONS: Tell the healthcare professional about other medicines being used.
