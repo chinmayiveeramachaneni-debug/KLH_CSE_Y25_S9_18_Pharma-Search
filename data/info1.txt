@@ -1,0 +1,6 @@
+MEDICINE: Ibuprofen
+CATEGORY: Non-Steroidal Anti-Inflammatory Drug
+USES: Used for relieving pain, reducing fever, and reducing inflammation.
+DOSAGE: Follow the dosage recommended by a qualified healthcare professional.
+SIDE EFFECTS: Stomach discomfort, nausea, dizziness, or headache may occur.
+PRECAUTIONS: Use according to medical advice.
