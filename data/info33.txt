@@ -1,0 +1,6 @@
+MEDICINE: Clonidine
+CATEGORY: Antihypertensive Medicine
+USES: Used in certain situations to help control blood pressure.
+DOSAGE: Use only according to prescribed instructions.
+SIDE EFFECTS: Drowsiness, dry mouth, or dizziness may occur.
+PRECAUTIONS: Do not change or stop treatment without medical advice.
