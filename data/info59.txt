@@ -1,0 +1,6 @@
+MEDICINE: Enalapril
+CATEGORY: ACE Inhibitor
+USES: Used to help control high blood pressure and certain heart conditions.
+DOSAGE: Take only as prescribed.
+SIDE EFFECTS: Dizziness, cough, or headache may occur.
+PRECAUTIONS: Follow healthcare professional's instructions.
