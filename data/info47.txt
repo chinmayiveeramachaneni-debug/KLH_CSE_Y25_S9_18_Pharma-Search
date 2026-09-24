@@ -1,0 +1,6 @@
+MEDICINE: Clotrimazole
+CATEGORY: Antifungal
+USES: Used to treat certain fungal skin infections.
+DOSAGE: Apply or use according to professional instructions.
+SIDE EFFECTS: Skin irritation, redness, or itching may occur.
+PRECAUTIONS: For external use when directed.
