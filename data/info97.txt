@@ -1,0 +1,6 @@
+MEDICINE: Ondansetron
+CATEGORY: Antiemetic
+USES: Used to help prevent nausea and vomiting in certain situations.
+DOSAGE: Use according to prescribed instructions.
+SIDE EFFECTS: Headache, constipation, or dizziness may occur.
+PRECAUTIONS: Use according to professional medical advice.
