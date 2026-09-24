@@ -1,0 +1,6 @@
+MEDICINE: Atorvastatin
+CATEGORY: Statin
+USES: Used to help lower cholesterol levels.
+DOSAGE: Take according to the prescribed dosage.
+SIDE EFFECTS: Muscle discomfort, headache, or digestive problems may occur.
+PRECAUTIONS: Follow medical advice.
