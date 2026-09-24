@@ -1,0 +1,6 @@
+MEDICINE: Chlorpheniramine
+CATEGORY: Antihistamine
+USES: Used to relieve certain allergy symptoms.
+DOSAGE: Follow the recommended dosage or medical advice.
+SIDE EFFECTS: Drowsiness, dry mouth, or dizziness may occur.
+PRECAUTIONS: Avoid activities requiring alertness if drowsy.
