@@ -1,0 +1,6 @@
+MEDICINE: Beclometasone
+CATEGORY: Corticosteroid
+USES: Used to reduce inflammation in certain respiratory conditions.
+DOSAGE: Use according to medical advice.
+SIDE EFFECTS: Throat irritation, hoarseness, or cough may occur.
+PRECAUTIONS: Follow prescribed inhaler instructions.
