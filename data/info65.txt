@@ -1,0 +1,6 @@
+MEDICINE: Telmisartan
+CATEGORY: Angiotensin Receptor Blocker
+USES: Used to help control high blood pressure.
+DOSAGE: Take according to the prescribed dosage.
+SIDE EFFECTS: Dizziness, headache, or tiredness may occur.
+PRECAUTIONS: Follow medical advice.
