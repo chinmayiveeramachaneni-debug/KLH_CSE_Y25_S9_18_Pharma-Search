@@ -1,0 +1,6 @@
+MEDICINE: Ranitidine
+CATEGORY: Histamine-2 Receptor Antagonist
+USES: Historically used to reduce stomach acid; availability and use depend on local regulatory status.
+DOSAGE: Do not use unless specifically approved and prescribed where available.
+SIDE EFFECTS: Headache, nausea, or stomach discomfort may occur.
+PRECAUTIONS: Check current local regulatory guidance and professional advice.
