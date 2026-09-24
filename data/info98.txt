@@ -1,0 +1,6 @@
+MEDICINE: Domperidone
+CATEGORY: Gastrointestinal Medicine
+USES: Used in some settings for certain nausea or gastrointestinal symptoms.
+DOSAGE: Use only where prescribed and according to local medical guidance.
+SIDE EFFECTS: Dry mouth, headache, or abdominal discomfort may occur.
+PRECAUTIONS: Use only under professional medical advice.
