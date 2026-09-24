@@ -1,0 +1,6 @@
+MEDICINE: Prednisolone
+CATEGORY: Corticosteroid
+USES: Used to reduce inflammation in various medical conditions.
+DOSAGE: Take only according to professional medical advice.
+SIDE EFFECTS: Increased appetite, stomach discomfort, or mood changes may occur.
+PRECAUTIONS: Do not stop long-term treatment suddenly without medical advice.
