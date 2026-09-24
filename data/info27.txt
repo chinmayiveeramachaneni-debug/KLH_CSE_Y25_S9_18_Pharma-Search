@@ -1,0 +1,6 @@
+MEDICINE: Levothyroxine
+CATEGORY: Thyroid Medicine
+USES: Used to replace thyroid hormone when the body does not produce enough thyroid hormone.
+DOSAGE: Take according to the prescribed instructions.
+SIDE EFFECTS: Changes in heart rate, sweating, or nervousness may occur if the dose is inappropriate.
+PRECAUTIONS: Use only according to medical advice.
