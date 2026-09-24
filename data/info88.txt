@@ -1,0 +1,6 @@
+MEDICINE: Empagliflozin
+CATEGORY: SGLT2 Inhibitor
+USES: Used to help control blood glucose levels in type 2 diabetes and for certain cardiovascular or kidney indications.
+DOSAGE: Use according to prescribed instructions.
+SIDE EFFECTS: Increased urination, dehydration, or genital infections may occur.
+PRECAUTIONS: Follow medical advice and hydration guidance.
