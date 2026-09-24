@@ -1,0 +1,6 @@
+MEDICINE: Digoxin
+CATEGORY: Cardiac Glycoside
+USES: Used in specific heart conditions under medical supervision.
+DOSAGE: Dose must be individualized by a healthcare professional.
+SIDE EFFECTS: Nausea, dizziness, or changes in heart rhythm may occur.
+PRECAUTIONS: Requires careful professional monitoring.
