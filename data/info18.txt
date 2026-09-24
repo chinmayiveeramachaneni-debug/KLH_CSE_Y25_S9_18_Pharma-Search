@@ -1,0 +1,6 @@
+MEDICINE: Amlodipine
+CATEGORY: Antihypertensive Medicine
+USES: Commonly used to help control high blood pressure.
+DOSAGE: Take according to the prescribed dosage.
+SIDE EFFECTS: Dizziness, headache, or swelling may occur.
+PRECAUTIONS: Follow the instructions provided by a healthcare professional.
