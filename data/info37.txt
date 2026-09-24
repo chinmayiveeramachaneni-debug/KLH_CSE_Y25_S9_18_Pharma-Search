@@ -1,0 +1,6 @@
+MEDICINE: Amiodarone
+CATEGORY: Antiarrhythmic Medicine
+USES: Used to manage certain abnormal heart rhythms.
+DOSAGE: Use only under specialist medical supervision.
+SIDE EFFECTS: Nausea, dizziness, or changes in heart rhythm may occur.
+PRECAUTIONS: Requires professional monitoring.
