@@ -1,0 +1,6 @@
+MEDICINE: Diclofenac
+CATEGORY: Non-Steroidal Anti-Inflammatory Drug
+USES: Used to relieve pain and inflammation in certain conditions.
+DOSAGE: Use only according to medical advice.
+SIDE EFFECTS: Stomach discomfort, nausea, or dizziness may occur.
+PRECAUTIONS: Follow the prescribed dosage.
