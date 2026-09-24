@@ -1,0 +1,6 @@
+MEDICINE: Clindamycin
+CATEGORY: Antibiotic
+USES: Used to treat certain bacterial infections.
+DOSAGE: Take according to healthcare professional's instructions.
+SIDE EFFECTS: Diarrhea, nausea, or abdominal discomfort may occur.
+PRECAUTIONS: Seek medical advice if severe diarrhea develops.
