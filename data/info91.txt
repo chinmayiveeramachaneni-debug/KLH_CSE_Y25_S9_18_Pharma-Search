@@ -1,0 +1,6 @@
+MEDICINE: Simvastatin
+CATEGORY: Statin
+USES: Used to help lower cholesterol levels.
+DOSAGE: Use according to prescribed instructions.
+SIDE EFFECTS: Muscle discomfort, headache, or digestive problems may occur.
+PRECAUTIONS: Inform the healthcare professional about other medicines.
