@@ -1,0 +1,6 @@
+MEDICINE: Salbutamol
+CATEGORY: Bronchodilator
+USES: Used to help relieve breathing difficulties associated with certain respiratory conditions.
+DOSAGE: Use according to healthcare professional's instructions.
+SIDE EFFECTS: Tremor, headache, or increased heart rate may occur.
+PRECAUTIONS: Use only as directed.
