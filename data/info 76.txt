@@ -1,0 +1,6 @@
+MEDICINE: Ketorolac
+CATEGORY: Non-Steroidal Anti-Inflammatory Drug
+USES: Used for short-term management of certain moderate to severe pain.
+DOSAGE: Use only as prescribed and for the recommended duration.
+SIDE EFFECTS: Stomach discomfort, nausea, or dizziness may occur.
+PRECAUTIONS: Use only under professional guidance.
