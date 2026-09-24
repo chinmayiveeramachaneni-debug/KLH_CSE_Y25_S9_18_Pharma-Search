@@ -1,0 +1,6 @@
+MEDICINE: Propranolol
+CATEGORY: Beta Blocker
+USES: Used for certain cardiovascular conditions and other medical uses.
+DOSAGE: Use only according to professional medical advice.
+SIDE EFFECTS: Dizziness, tiredness, or slow heartbeat may occur.
+PRECAUTIONS: Follow prescribed instructions.
