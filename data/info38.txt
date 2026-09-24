@@ -1,0 +1,6 @@
+MEDICINE: Mometasone
+CATEGORY: Corticosteroid
+USES: Used for certain allergic and inflammatory conditions.
+DOSAGE: Use according to professional instructions.
+SIDE EFFECTS: Local irritation, headache, or dryness may occur.
+PRECAUTIONS: Use only as directed.
