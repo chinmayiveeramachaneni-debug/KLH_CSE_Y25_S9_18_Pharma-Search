@@ -1,0 +1,6 @@
+MEDICINE: Acyclovir
+CATEGORY: Antiviral
+USES: Used to manage certain viral infections.
+DOSAGE: Take according to prescribed instructions.
+SIDE EFFECTS: Nausea, headache, or tiredness may occur.
+PRECAUTIONS: Maintain appropriate medical guidance during treatment.
