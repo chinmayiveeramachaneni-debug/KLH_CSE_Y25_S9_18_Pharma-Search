@@ -1,0 +1,6 @@
+MEDICINE: Insulin
+CATEGORY: Antidiabetic Hormone
+USES: Used to control blood glucose levels in people who require insulin therapy.
+DOSAGE: Dose and timing must be determined by a healthcare professional.
+SIDE EFFECTS: Low blood glucose or injection-site reactions may occur.
+PRECAUTIONS: Use only according to prescribed instructions.
