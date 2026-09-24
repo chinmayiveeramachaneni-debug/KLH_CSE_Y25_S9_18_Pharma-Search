@@ -1,0 +1,6 @@
+MEDICINE: Ezetimibe
+CATEGORY: Cholesterol-Lowering Medicine
+USES: Used to help lower cholesterol levels.
+DOSAGE: Take according to prescribed instructions.
+SIDE EFFECTS: Headache, abdominal discomfort, or diarrhea may occur.
+PRECAUTIONS: Use according to medical advice.
