@@ -1,0 +1,6 @@
+MEDICINE: Omeprazole
+CATEGORY: Proton Pump Inhibitor
+USES: Used to reduce stomach acid and manage certain acid-related conditions.
+DOSAGE: Take according to healthcare professional's instructions.
+SIDE EFFECTS: Headache, nausea, or stomach discomfort may occur.
+PRECAUTIONS: Follow the prescribed instructions.
