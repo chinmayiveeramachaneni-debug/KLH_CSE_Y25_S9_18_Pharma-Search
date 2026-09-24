@@ -1,0 +1,6 @@
+MEDICINE: Tiotropium
+CATEGORY: Bronchodilator
+USES: Used for maintenance treatment of certain chronic respiratory conditions.
+DOSAGE: Use according to prescribed instructions.
+SIDE EFFECTS: Dry mouth, throat irritation, or headache may occur.
+PRECAUTIONS: Use only as directed.
