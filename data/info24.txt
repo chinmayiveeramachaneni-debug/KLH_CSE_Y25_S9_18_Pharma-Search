@@ -1,0 +1,6 @@
+MEDICINE: Vitamin D3
+CATEGORY: Vitamin Supplement
+USES: Used to prevent or treat vitamin D deficiency when medically indicated.
+DOSAGE: Use according to professional or label instructions.
+SIDE EFFECTS: Excessive intake may cause nausea or other problems.
+PRECAUTIONS: Do not exceed recommended intake.
