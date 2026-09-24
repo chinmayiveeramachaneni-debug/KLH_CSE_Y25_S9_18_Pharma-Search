@@ -1,0 +1,6 @@
+MEDICINE: Aspirin
+CATEGORY: Analgesic and Antiplatelet Medicine
+USES: Used for certain pain conditions and, in specific situations, to reduce blood clot formation.
+DOSAGE: Use only according to healthcare professional's advice.
+SIDE EFFECTS: Stomach irritation, nausea, or bleeding may occur.
+PRECAUTIONS: Consult a healthcare professional before use.
