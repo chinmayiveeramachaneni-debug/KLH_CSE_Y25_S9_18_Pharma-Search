@@ -1,0 +1,6 @@
+MEDICINE: Azithromycin
+CATEGORY: Antibiotic
+USES: Used to treat certain bacterial infections.
+DOSAGE: Use only according to medical advice.
+SIDE EFFECTS: Nausea, diarrhea, abdominal discomfort, or headache may occur.
+PRECAUTIONS: Complete the prescribed course as directed.
