@@ -1,0 +1,6 @@
+MEDICINE: Bisacodyl
+CATEGORY: Laxative
+USES: Used for short-term relief of constipation.
+DOSAGE: Use according to label or professional advice.
+SIDE EFFECTS: Abdominal cramps, diarrhea, or nausea may occur.
+PRECAUTIONS: Avoid prolonged unsupervised use.
