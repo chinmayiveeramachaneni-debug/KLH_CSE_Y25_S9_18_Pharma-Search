@@ -1,0 +1,6 @@
+MEDICINE: Hydrocortisone
+CATEGORY: Corticosteroid
+USES: Used to reduce inflammation and itching in certain conditions.
+DOSAGE: Use according to professional instructions.
+SIDE EFFECTS: Skin irritation or dryness may occur with topical use.
+PRECAUTIONS: Use only as directed.
