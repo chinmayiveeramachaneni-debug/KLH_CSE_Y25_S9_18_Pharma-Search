@@ -1,0 +1,6 @@
+MEDICINE: Loperamide
+CATEGORY: Antidiarrheal
+USES: Used for short-term relief of certain types of diarrhea.
+DOSAGE: Follow the product label or healthcare professional's advice.
+SIDE EFFECTS: Constipation, abdominal discomfort, or dizziness may occur.
+PRECAUTIONS: Do not use for certain infectious diarrheas without medical advice.
