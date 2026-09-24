@@ -1,0 +1,6 @@
+MEDICINE: Rosuvastatin
+CATEGORY: Statin
+USES: Used to help lower cholesterol levels.
+DOSAGE: Take according to prescribed dosage.
+SIDE EFFECTS: Muscle discomfort, headache, or stomach discomfort may occur.
+PRECAUTIONS: Follow professional medical advice.
