@@ -1,0 +1,6 @@
+MEDICINE: Ipratropium
+CATEGORY: Bronchodilator
+USES: Used to help relieve symptoms in certain respiratory conditions.
+DOSAGE: Use according to prescribed instructions.
+SIDE EFFECTS: Dry mouth, headache, or throat irritation may occur.
+PRECAUTIONS: Follow professional instructions.
