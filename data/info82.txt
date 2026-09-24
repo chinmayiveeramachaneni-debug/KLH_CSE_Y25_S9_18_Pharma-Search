@@ -1,0 +1,6 @@
+MEDICINE: Rivaroxaban
+CATEGORY: Anticoagulant
+USES: Used in specific situations to prevent or treat blood clots.
+DOSAGE: Use only as prescribed.
+SIDE EFFECTS: Bleeding, nausea, or dizziness may occur.
+PRECAUTIONS: Follow professional instructions carefully.
