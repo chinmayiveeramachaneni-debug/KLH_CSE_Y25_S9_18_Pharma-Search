@@ -1,0 +1,6 @@
+MEDICINE: Spironolactone
+CATEGORY: Potassium-Sparing Diuretic
+USES: Used in certain heart, blood pressure, and fluid-related conditions.
+DOSAGE: Take according to prescribed instructions.
+SIDE EFFECTS: Dizziness, increased urination, or changes in potassium may occur.
+PRECAUTIONS: Follow medical monitoring advice.
