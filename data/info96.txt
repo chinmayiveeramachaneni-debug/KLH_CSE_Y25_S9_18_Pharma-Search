@@ -1,0 +1,6 @@
+MEDICINE: Magnesium Hydroxide
+CATEGORY: Antacid and Laxative
+USES: Used for certain symptoms of indigestion and constipation.
+DOSAGE: Use according to label or professional advice.
+SIDE EFFECTS: Diarrhea or abdominal discomfort may occur.
+PRECAUTIONS: Use cautiously and follow medical advice.
