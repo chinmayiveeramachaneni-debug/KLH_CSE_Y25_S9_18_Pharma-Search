@@ -1,0 +1,489 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.PrintStream;
+import java.nio.file.DirectoryStream;
+import java.nio.file.Files;
+import java.nio.file.LinkOption;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.LinkedHashSet;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Random;
+import java.util.Scanner;
+
+public class PharmaSearch {
+   public PharmaSearch() {
+   }
+
+   static List<Medicine> loadMedicines() {
+      ArrayList var0 = new ArrayList();
+      Path var1 = Paths.get("medicines");
+      if (!Files.isDirectory(var1, new LinkOption[0])) {
+         System.out.println("ERROR: medicines folder not found.");
+         System.out.println("Expected location: " + String.valueOf(var1.toAbsolutePath()));
+         return var0;
+      } else {
+         try {
+            ArrayList var2 = new ArrayList();
+            DirectoryStream var3 = Files.newDirectoryStream(var1);
+
+            try {
+               for(Path var5 : var3) {
+                  if (Files.isRegularFile(var5, new LinkOption[0]) && var5.getFileName().toString().toLowerCase().endsWith(".txt")) {
+                     var2.add(var5);
+                  }
+               }
+            } catch (Throwable var13) {
+               if (var3 != null) {
+                  try {
+                     var3.close();
+                  } catch (Throwable var11) {
+                     var13.addSuppressed(var11);
+                  }
+               }
+
+               throw var13;
+            }
+
+            if (var3 != null) {
+               var3.close();
+            }
+
+            var2.sort(Comparator.comparing((var0x) -> var0x.getFileName().toString(), String.CASE_INSENSITIVE_ORDER));
+
+            for(Path var18 : var2) {
+               Medicine var19 = new Medicine();
+
+               try {
+                  BufferedReader var6 = Files.newBufferedReader(var18);
+
+                  try {
+                     String var7;
+                     while((var7 = var6.readLine()) != null) {
+                        var7 = var7.trim();
+                        if (!var7.isEmpty()) {
+                           int var8 = var7.indexOf(58);
+                           if (var8 >= 0) {
+                              String var9 = var7.substring(0, var8).trim();
+                              String var10 = var7.substring(var8 + 1).trim();
+                              var19.setField(var9, var10);
+                           } else {
+                              var19.extraDetails = var19.extraDetails + var7 + "\n";
+                           }
+                        }
+                     }
+
+                     if (var19.name.trim().isEmpty()) {
+                        String var21 = var18.getFileName().toString();
+                        var19.name = var21.replaceFirst("(?i)\\.txt$", "");
+                     }
+
+                     var0.add(var19);
+                  } catch (Throwable var14) {
+                     if (var6 != null) {
+                        try {
+                           var6.close();
+                        } catch (Throwable var12) {
+                           var14.addSuppressed(var12);
+                        }
+                     }
+
+                     throw var14;
+                  }
+
+                  if (var6 != null) {
+                     var6.close();
+                  }
+               } catch (IOException var15) {
+                  PrintStream var10000 = System.out;
+                  String var10001 = String.valueOf(var18.getFileName());
+                  var10000.println("Cannot read " + var10001 + ": " + var15.getMessage());
+               }
+            }
+         } catch (IOException var16) {
+            System.out.println("Error loading files: " + var16.getMessage());
+         }
+
+         System.out.println("Medicine records loaded: " + var0.size());
+         return var0;
+      }
+   }
+
+   static int[] buildLPS(String var0) {
+      int[] var1 = new int[var0.length()];
+      int var2 = 0;
+      int var3 = 1;
+
+      while(var3 < var0.length()) {
+         if (var0.charAt(var3) == var0.charAt(var2)) {
+            ++var2;
+            var1[var3] = var2;
+            ++var3;
+         } else if (var2 > 0) {
+            var2 = var1[var2 - 1];
+         } else {
+            var1[var3] = 0;
+            ++var3;
+         }
+      }
+
+      return var1;
+   }
+
+   static boolean kmpSearch(String var0, String var1) {
+      if (var1.isEmpty()) {
+         return true;
+      } else {
+         var0 = var0.toLowerCase();
+         var1 = var1.toLowerCase();
+         int[] var2 = buildLPS(var1);
+         int var3 = 0;
+         int var4 = 0;
+
+         while(var3 < var0.length()) {
+            if (var0.charAt(var3) == var1.charAt(var4)) {
+               ++var3;
+               ++var4;
+               if (var4 == var1.length()) {
+                  return true;
+               }
+            } else if (var4 > 0) {
+               var4 = var2[var4 - 1];
+            } else {
+               ++var3;
+            }
+         }
+
+         return false;
+      }
+   }
+
+   static int editDistance(String var0, String var1) {
+      var0 = var0.toLowerCase();
+      var1 = var1.toLowerCase();
+      int var2 = var0.length();
+      int var3 = var1.length();
+      int[][] var4 = new int[var2 + 1][var3 + 1];
+
+      for(int var5 = 0; var5 <= var2; var4[var5][0] = var5++) {
+      }
+
+      for(int var10 = 0; var10 <= var3; var4[0][var10] = var10++) {
+      }
+
+      for(int var11 = 1; var11 <= var2; ++var11) {
+         for(int var6 = 1; var6 <= var3; ++var6) {
+            int var7 = var0.charAt(var11 - 1) == var1.charAt(var6 - 1) ? 0 : 1;
+            var4[var11][var6] = Math.min(Math.min(var4[var11 - 1][var6] + 1, var4[var11][var6 - 1] + 1), var4[var11 - 1][var6 - 1] + var7);
+         }
+      }
+
+      return var4[var2][var3];
+   }
+
+   static boolean fuzzySearch(List<Medicine> var0, String var1) {
+      if (var0.isEmpty()) {
+         System.out.println("No medicine records available.");
+         return false;
+      } else {
+         Medicine var2 = null;
+         int var3 = Integer.MAX_VALUE;
+
+         for(Medicine var5 : var0) {
+            int var6 = editDistance(var5.name, var1);
+            if (var6 < var3) {
+               var3 = var6;
+               var2 = var5;
+            }
+         }
+
+         int var7 = Math.max(2, var1.length() / 3);
+         if (var2 != null && var3 <= var7) {
+            System.out.println("\nDid you mean? " + var2.name + " [" + var3 + "]");
+            System.out.println();
+            var2.display();
+            return true;
+         } else {
+            System.out.println("No close medicine name found.");
+            System.out.println("Please check the spelling.");
+            return false;
+         }
+      }
+   }
+
+   static void searchMedicine(List<Medicine> var0, String var1) {
+      if (var1.trim().isEmpty()) {
+         System.out.println("Please enter a medicine name or keyword.");
+      } else {
+         var1 = var1.trim();
+         System.out.println("\nSearch query : \"" + var1 + "\"");
+         System.out.println("LPS array    : " + Arrays.toString(buildLPS(var1.toLowerCase())));
+         int var2 = 0;
+
+         for(Medicine var4 : var0) {
+            if (kmpSearch(var4.searchableText(), var1)) {
+               var4.display();
+               System.out.println();
+               ++var2;
+            }
+         }
+
+         System.out.println("Total matches: " + var2);
+         if (var2 <= 0) {
+            System.out.println("No exact match found for \"" + var1 + "\".");
+            fuzzySearch(var0, var1);
+         }
+      }
+   }
+
+   static int maxFlow(int[][] var0, int var1, int var2) {
+      int var3 = var0.length;
+      int[][] var4 = new int[var3][var3];
+
+      for(int var5 = 0; var5 < var3; ++var5) {
+         var4[var5] = (int[])var0[var5].clone();
+      }
+
+      int var11 = 0;
+      int[] var6 = new int[var3];
+
+      while(true) {
+         Arrays.fill(var6, -1);
+         LinkedList var7 = new LinkedList();
+         var7.add(var1);
+         var6[var1] = var1;
+
+         while(!var7.isEmpty() && var6[var2] == -1) {
+            int var8 = (Integer)var7.remove();
+
+            for(int var9 = 0; var9 < var3; ++var9) {
+               if (var6[var9] == -1 && var4[var8][var9] > 0) {
+                  var6[var9] = var8;
+                  var7.add(var9);
+               }
+            }
+         }
+
+         if (var6[var2] == -1) {
+            return var11;
+         }
+
+         int var12 = Integer.MAX_VALUE;
+
+         for(int var13 = var2; var13 != var1; var13 = var6[var13]) {
+            var12 = Math.min(var12, var4[var6[var13]][var13]);
+         }
+
+         for(int var14 = var2; var14 != var1; var14 = var6[var14]) {
+            int var10 = var6[var14];
+            var4[var10][var14] -= var12;
+            var4[var14][var10] += var12;
+         }
+
+         var11 += var12;
+      }
+   }
+
+   static void demonstrateMaxFlow() {
+      int[][] var0 = new int[][]{{0, 10, 5, 0}, {0, 0, 0, 10}, {0, 0, 0, 10}, {0, 0, 0, 0}};
+      System.out.println("\nSupplier Stock Allocation");
+      System.out.println("Maximum possible flow: " + maxFlow(var0, 0, 3) + " units");
+      System.out.println("(Demonstration network, not live inventory.)");
+   }
+
+   static void demonstrateVertexCover() {
+      int[][] var0 = new int[][]{{0, 1}, {1, 2}, {2, 3}, {3, 0}, {1, 3}};
+      LinkedHashSet var1 = new LinkedHashSet();
+      boolean[] var2 = new boolean[4];
+
+      for(int[] var6 : var0) {
+         int var7 = var6[0];
+         int var8 = var6[1];
+         if (!var2[var7] && !var2[var8]) {
+            var1.add(var7);
+            var1.add(var8);
+            var2[var7] = true;
+            var2[var8] = true;
+         }
+      }
+
+      System.out.println("\nDrug Interaction Monitoring");
+      System.out.println("Selected review vertices: " + String.valueOf(var1));
+      System.out.println("These vertices cover the demonstration edges.");
+      System.out.println("This is a sample graph, not a verified drug-interaction database.");
+   }
+
+   static void demonstrateSampling(List<Medicine> var0, int var1) {
+      if (var1 <= 0) {
+         System.out.println("Enter a number greater than zero.");
+      } else if (var0.isEmpty()) {
+         System.out.println("No medicine records available.");
+      } else {
+         int var2 = Math.min(var1, var0.size());
+         ArrayList var3 = new ArrayList();
+         Random var4 = new Random();
+
+         for(int var5 = 0; var5 < var0.size(); ++var5) {
+            if (var5 < var2) {
+               var3.add((Medicine)var0.get(var5));
+            } else {
+               int var6 = var4.nextInt(var5 + 1);
+               if (var6 < var2) {
+                  var3.set(var6, (Medicine)var0.get(var5));
+               }
+            }
+         }
+
+         System.out.println("\nQuality-Control Sample");
+
+         for(Medicine var8 : var3) {
+            System.out.println("- " + var8.name);
+         }
+
+         System.out.println("Sample size: " + var3.size());
+      }
+   }
+
+   static void showSystemDesign() {
+      System.out.println("\n========== SYSTEM DESIGN ==========");
+      System.out.printf("%-25s %-32s %-20s%n", "Module", "Algorithm", "Purpose");
+      System.out.println("--------------------------------------------------------------------------");
+      System.out.printf("%-25s %-32s %-20s%n", "Medicine Search", "KMP String Matching", "Keyword search");
+      System.out.printf("%-25s %-32s %-20s%n", "Spelling Correction", "Edit Distance DP", "Approximate matching");
+      System.out.printf("%-25s %-32s %-20s%n", "Supplier Allocation", "Edmonds-Karp Max-Flow", "Flow demonstration");
+      System.out.printf("%-25s %-32s %-20s%n", "Interaction Monitoring", "Greedy Vertex Cover", "Graph demonstration");
+      System.out.printf("%-25s %-32s %-20s%n", "Quality Control", "Reservoir Sampling", "Random sampling");
+      System.out.printf("%-25s %-32s %-20s%n", "Data Management", "Text File Processing", "Load medicine records");
+      System.out.println("Stock defaults to 150 unless specified in a medicine file.");
+   }
+
+   public static void main(String[] var0) {
+      List var1 = loadMedicines();
+      if (var1.isEmpty()) {
+         System.out.println("No medicine files loaded.");
+         System.out.println("Check that .txt files are in the medicines folder.");
+      } else {
+         Scanner var2 = new Scanner(System.in);
+
+         while(true) {
+            System.out.println("\n============= MAIN MENU =============");
+            System.out.println(" 1. Search medicine / keyword      (Module 2 - KMP)");
+            System.out.println(" 2. Fuzzy name matching            (Module 3 - Edit Distance DP)");
+            System.out.println(" 3. Supplier stock allocation      (Module 4 - Max-Flow)");
+            System.out.println(" 4. Drug-interaction monitoring    (Module 5 - Vertex-Cover Approx)");
+            System.out.println(" 5. Quality-control sampling       (Module 6 - Reservoir Sampling)");
+            System.out.println(" 6. System design table            (Module 1 - Engine overview)");
+            System.out.println(" 0. Exit");
+            System.out.print("Choose an option: ");
+            switch (var2.nextLine().trim()) {
+               case "1":
+                  System.out.print("Search> ");
+                  String var6 = var2.nextLine().trim();
+                  searchMedicine(var1, var6);
+                  break;
+               case "2":
+                  System.out.print("Enter medicine name or spelling: ");
+                  String var7 = var2.nextLine().trim();
+                  fuzzySearch(var1, var7);
+                  break;
+               case "3":
+                  demonstrateMaxFlow();
+                  break;
+               case "4":
+                  demonstrateVertexCover();
+                  break;
+               case "5":
+                  System.out.print("Enter sample size: ");
+
+                  try {
+                     int var8 = Integer.parseInt(var2.nextLine().trim());
+                     demonstrateSampling(var1, var8);
+                  } catch (NumberFormatException var9) {
+                     System.out.println("Please enter a valid integer.");
+                  }
+                  break;
+               case "6":
+                  showSystemDesign();
+                  System.out.println("Medicine records loaded: " + var1.size());
+                  break;
+               case "0":
+                  System.out.println("Exiting PharmaSearch. Goodbye!");
+                  var2.close();
+                  return;
+               default:
+                  System.out.println("Invalid option. Please try again.");
+            }
+         }
+      }
+   }
+
+   static class Medicine {
+      String name = "";
+      String category = "";
+      String uses = "";
+      String dosage = "";
+      String sideEffects = "";
+      String precautions = "";
+      String stock = "150";
+      String extraDetails = "";
+
+      Medicine() {
+      }
+
+      void setField(String var1, String var2) {
+         switch (var1.trim().toUpperCase()) {
+            case "MEDICINE":
+            case "NAME":
+               this.name = var2;
+               break;
+            case "CATEGORY":
+               this.category = var2;
+               break;
+            case "USES":
+               this.uses = var2;
+               break;
+            case "DOSAGE":
+               this.dosage = var2;
+               break;
+            case "SIDE EFFECTS":
+            case "SIDE_EFFECTS":
+            case "SIDE-EFFECTS":
+               this.sideEffects = var2;
+               break;
+            case "PRECAUTIONS":
+               this.precautions = var2;
+               break;
+            case "STOCK":
+            case "QUANTITY":
+            case "AVAILABLE STOCK":
+               this.stock = var2;
+               break;
+            default:
+               this.extraDetails = this.extraDetails + var1 + ": " + var2 + "\n";
+         }
+
+      }
+
+      String searchableText() {
+         return (this.name + " " + this.category + " " + this.uses + " " + this.dosage + " " + this.sideEffects + " " + this.precautions + " " + this.stock + " " + this.extraDetails).toLowerCase();
+      }
+
+      void display() {
+         System.out.println("MEDICINE: " + this.name);
+         System.out.println("CATEGORY: " + this.valueOrNA(this.category));
+         System.out.println("USES: " + this.valueOrNA(this.uses));
+         System.out.println("DOSAGE: " + this.valueOrNA(this.dosage));
+         System.out.println("SIDE EFFECTS: " + this.valueOrNA(this.sideEffects));
+         System.out.println("PRECAUTIONS: " + this.valueOrNA(this.precautions));
+         System.out.println("STOCK: " + this.stock);
+      }
+
+      private String valueOrNA(String var1) {
+         return var1 != null && !var1.trim().isEmpty() ? var1 : "Not provided";
+      }
+   }
+}
