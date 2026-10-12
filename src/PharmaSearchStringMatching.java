@@ -1,21 +1,152 @@
-
 import java.io.*;
+import java.nio.file.*;
 import java.util.*;
 
-public class PharmaSearchStringMatching {
+public class PharmaSearch {
 
-    // ==================== KMP ====================
+    // Module 1: Medicine record structure
+    static class Medicine {
+        String name = "";
+        String category = "";
+        String uses = "";
+        String dosage = "";
+        String sideEffects = "";
+        String precautions = "";
+        String content = "";
 
-    public static int[] buildLPS(String pattern) {
+        void setField(String field, String value) {
+            switch (field.toUpperCase().trim()) {
+                case "MEDICINE":
+                case "NAME":
+                    name = value;
+                    break;
+                case "CATEGORY":
+                    category = value;
+                    break;
+                case "USES":
+                    uses = value;
+                    break;
+                case "DOSAGE":
+                    dosage = value;
+                    break;
+                case "SIDE EFFECTS":
+                case "SIDE_EFFECTS":
+                    sideEffects = value;
+                    break;
+                case "PRECAUTIONS":
+                    precautions = value;
+                    break;
+                default:
+                    content += field + ": " + value + "\n";
+            }
+        }
+
+        String searchableText() {
+            return (name + " " + category + " " + uses + " "
+                    + dosage + " " + sideEffects + " "
+                    + precautions + " " + content).toLowerCase();
+        }
+
+        void display() {
+            System.out.println("\nMedicine: " + name);
+            if (!category.isEmpty())
+                System.out.println("Category: " + category);
+            if (!uses.isEmpty())
+                System.out.println("Uses: " + uses);
+            if (!dosage.isEmpty())
+                System.out.println("Dosage: " + dosage);
+            if (!sideEffects.isEmpty())
+                System.out.println("Side Effects: " + sideEffects);
+            if (!precautions.isEmpty())
+                System.out.println("Precautions: " + precautions);
+            if (!content.isEmpty())
+                System.out.println(content);
+            System.out.println("--------------------------------");
+        }
+    }
+
+    // Module 2: Load all individual medicine text files
+    static List<Medicine> loadCorpus() {
+        List<Medicine> medicines = new ArrayList<>();
+        Path folder = Paths.get("medicines");
+
+        if (!Files.isDirectory(folder)) {
+            System.out.println("ERROR: medicines folder not found.");
+            System.out.println("Place it beside PharmaSearch.java.");
+            return medicines;
+        }
+
+        try {
+            List<Path> files = new ArrayList<>();
+            try (DirectoryStream<Path> stream =
+                         Files.newDirectoryStream(folder, "*.txt")) {
+                for (Path file : stream) {
+                    files.add(file);
+                }
+            }
+
+            files.sort(Comparator.comparing(
+                    p -> p.getFileName().toString(),
+                    String.CASE_INSENSITIVE_ORDER));
+
+            for (Path file : files) {
+                Medicine medicine = new Medicine();
+
+                try (BufferedReader reader =
+                             Files.newBufferedReader(file)) {
+                    String line;
+
+                    while ((line = reader.readLine()) != null) {
+                        line = line.trim();
+                        if (line.isEmpty()) continue;
+
+                        int colon = line.indexOf(':');
+                        if (colon >= 0) {
+                            String field =
+                                    line.substring(0, colon).trim();
+                            String value =
+                                    line.substring(colon + 1).trim();
+                            medicine.setField(field, value);
+                        } else {
+                            medicine.content += line + "\n";
+                        }
+                    }
+
+                    if (medicine.name.isEmpty()) {
+                        medicine.name = file.getFileName().toString()
+                                    .replaceFirst("(?i)\\.txt$", "");
+                    }
+
+                    medicine.content =
+                            file.getFileName() + "\n" + medicine.content;
+                    medicines.add(medicine);
+
+                } catch (IOException e) {
+                    System.out.println("Could not read "
+                            + file.getFileName() + ": " + e.getMessage());
+                }
+            }
+
+        } catch (IOException e) {
+            System.out.println("Error reading medicines folder: "
+                    + e.getMessage());
+        }
+
+        System.out.println("Medicine files loaded: " + medicines.size());
+        return medicines;
+    }
+
+    // Module 3: Knuth-Morris-Pratt (KMP) string matching
+    static int[] buildLPS(String pattern) {
         int[] lps = new int[pattern.length()];
-        int len = 0, i = 1;
+        int length = 0;
+        int i = 1;
 
         while (i < pattern.length()) {
-            if (Character.toLowerCase(pattern.charAt(i))
-                    == Character.toLowerCase(pattern.charAt(len))) {
-                lps[i++] = ++len;
-            } else if (len != 0) {
-                len = lps[len - 1];
+            if (pattern.charAt(i) == pattern.charAt(length)) {
+                lps[i++] = ++length;
+            } else if (length != 0) {
+                length = lps[length - 1];
             } else {
                 lps[i++] = 0;
             }
@@ -23,168 +154,140 @@ public class PharmaSearchStringMatching {
         return lps;
     }
 
-    public static ArrayList<Integer> KMPSearch(
-            String text, String pattern) {
+    static boolean kmpSearch(String text, String pattern) {
+        if (pattern.isEmpty()) return true;
 
-        ArrayList<Integer> positions = new ArrayList<>();
-
-        if (pattern == null || pattern.isEmpty())
-            return positions;
+        text = text.toLowerCase();
+        pattern = pattern.toLowerCase();
 
         int[] lps = buildLPS(pattern);
         int i = 0, j = 0;
 
         while (i < text.length()) {
-
-            if (Character.toLowerCase(text.charAt(i))
-                    == Character.toLowerCase(pattern.charAt(j))) {
+            if (text.charAt(i) == pattern.charAt(j)) {
                 i++;
                 j++;
             }
 
-            if (j == pattern.length()) {
-                positions.add(i - j);
-                j = lps[j - 1];
-            } else if (i < text.length()
-                    && Character.toLowerCase(text.charAt(i))
-                    != Character.toLowerCase(pattern.charAt(j))) {
+            if (j == pattern.length()) return true;
 
+            if (i < text.length()
+                    && text.charAt(i) != pattern.charAt(j)) {
                 if (j != 0)
                     j = lps[j - 1];
                 else
                     i++;
             }
         }
-
-        return positions;
+        return false;
     }
 
+    static void searchMedicine(List<Medicine> medicines, String query) {
+        int count = 0;
 
-    // ==================== EDIT DISTANCE ====================
+        for (Medicine medicine : medicines) {
+            if (kmpSearch(medicine.searchableText(), query)) {
+                medicine.display();
+                count++;
+            }
+        }
 
-    public static int editDistance(String a, String b) {
+        if (count == 0)
+            System.out.println("No matching medicines found.");
+        else
+            System.out.println("Total matches: " + count);
+    }
 
+    // Module 4: Edit Distance for approximate name matching
+    static int editDistance(String a, String b) {
         a = a.toLowerCase();
         b = b.toLowerCase();
 
-        int m = a.length();
-        int n = b.length();
+        int[][] dp = new int[a.length() + 1][b.length() + 1];
 
-        int[][] dp = new int[m + 1][n + 1];
-
-        for (int i = 0; i <= m; i++)
+        for (int i = 0; i <= a.length(); i++)
             dp[i][0] = i;
 
-        for (int j = 0; j <= n; j++)
+        for (int j = 0; j <= b.length(); j++)
             dp[0][j] = j;
 
-        for (int i = 1; i <= m; i++) {
-            for (int j = 1; j <= n; j++) {
+        for (int i = 1; i <= a.length(); i++) {
+            for (int j = 1; j <= b.length(); j++) {
+                int cost = a.charAt(i - 1) == b.charAt(j - 1)
+                        ? 0 : 1;
 
-                if (a.charAt(i - 1) == b.charAt(j - 1)) {
-                    dp[i][j] = dp[i - 1][j - 1];
-                } else {
-                    dp[i][j] = 1 + Math.min(
-                            dp[i - 1][j],
-                            Math.min(
-                                    dp[i][j - 1],
-                                    dp[i - 1][j - 1]
-                            )
-                    );
-                }
+                dp[i][j] = Math.min(
+                        Math.min(dp[i - 1][j] + 1,
+                                 dp[i][j - 1] + 1),
+                        dp[i - 1][j - 1] + cost);
+            }
+        }
+        return dp[a.length()][b.length()];
+    }
+
+    static void fuzzySearch(List<Medicine> medicines, String query) {
+        List<Medicine> matches = new ArrayList<>();
+        int bestDistance = Integer.MAX_VALUE;
+
+        for (Medicine medicine : medicines) {
+            int distance = editDistance(medicine.name, query);
+
+            if (distance < bestDistance) {
+                bestDistance = distance;
+                matches.clear();
+                matches.add(medicine);
+            } else if (distance == bestDistance) {
+                matches.add(medicine);
             }
         }
 
-        return dp[m][n];
-    }
-
-    public static void checkSpelling(
-            String query, String[] medicines) {
-
-        String closest = "";
-        int minDistance = Integer.MAX_VALUE;
-
-        for (String medicine : medicines) {
-
-            int distance = editDistance(query, medicine);
-
-            if (distance < minDistance) {
-                minDistance = distance;
-                closest = medicine;
-            }
+        if (matches.isEmpty()) {
+            System.out.println("No medicine records available.");
+            return;
         }
 
-        System.out.println("\n===== EDIT DISTANCE =====");
-        System.out.println("Entered : " + query);
-        System.out.println("Closest : " + closest);
-        System.out.println("Distance: " + minDistance);
-
-        if (minDistance == 0)
-            System.out.println("Status  : Correct spelling");
-        else if (minDistance <= 3)
-            System.out.println("Status  : Possible spelling mistake");
-        else
-            System.out.println("Status  : No close medicine found");
+        System.out.println("Closest name distance: " + bestDistance);
+        for (Medicine medicine : matches)
+            medicine.display();
     }
 
-
-    // ==================== NETWORK FLOW ====================
-
-    public static boolean bfs(
-            int[][] graph, int source, int sink, int[] parent) {
-
-        boolean[] visited = new boolean[graph.length];
-        Queue<Integer> queue = new LinkedList<>();
-
-        queue.add(source);
-        visited[source] = true;
-        parent[source] = -1;
-
-        while (!queue.isEmpty()) {
-
-            int u = queue.poll();
-
-            for (int v = 0; v < graph.length; v++) {
-
-                if (!visited[v] && graph[u][v] > 0) {
-                    queue.add(v);
-                    parent[v] = u;
-                    visited[v] = true;
-                }
-            }
-        }
-
-        return visited[sink];
-    }
-
-    public static int maxFlow(
-            int[][] graph, int source, int sink) {
-
-        int n = graph.length;
+    // Module 5: Edmonds-Karp maximum flow using BFS
+    static int maxFlow(int[][] capacity, int source, int sink) {
+        int n = capacity.length;
         int[][] residual = new int[n][n];
 
         for (int i = 0; i < n; i++)
-            residual[i] = graph[i].clone();
+            residual[i] = capacity[i].clone();
 
-        int[] parent = new int[n];
         int totalFlow = 0;
+        int[] parent = new int[n];
 
-        while (bfs(residual, source, sink, parent)) {
+        while (true) {
+            Arrays.fill(parent, -1);
+            Queue<Integer> queue = new LinkedList<>();
+            queue.add(source);
+            parent[source] = source;
 
-            int pathFlow = Integer.MAX_VALUE;
+            while (!queue.isEmpty() && parent[sink] == -1) {
+                int u = queue.remove();
 
-            for (int v = sink; v != source; v = parent[v]) {
-                int u = parent[v];
-                pathFlow = Math.min(
-                        pathFlow,
-                        residual[u][v]
-                );
+                for (int v = 0; v < n; v++) {
+                    if (parent[v] == -1 && residual[u][v] > 0) {
+                        parent[v] = u;
+                        queue.add(v);
+                    }
+                }
             }
 
+            if (parent[sink] == -1) break;
+
+            int pathFlow = Integer.MAX_VALUE;
+            for (int v = sink; v != source; v = parent[v])
+                pathFlow = Math.min(
+                        pathFlow, residual[parent[v]][v]);
+
             for (int v = sink; v != source; v = parent[v]) {
-
                 int u = parent[v];
-
                 residual[u][v] -= pathFlow;
                 residual[v][u] += pathFlow;
             }
@@ -195,181 +298,138 @@ public class PharmaSearchStringMatching {
         return totalFlow;
     }
 
-    public static void networkFlow() {
-
-        /*
-         * 0 = Source
-         * 1 = Supplier
-         * 2 = Pharmacy
-         * 3 = Patient
-         * 4 = Sink
-         */
-
-        int[][] graph = {
-                {0, 100, 0,  0,  0},
-                {0,   0, 80, 20, 0},
-                {0,   0,  0, 60, 0},
-                {0,   0,  0,  0, 70},
-                {0,   0,  0,  0,  0}
+    static void demonstrateMaxFlow() {
+        int[][] capacity = {
+            {0, 10, 5, 0},
+            {0, 0, 0, 10},
+            {0, 0, 0, 10},
+            {0, 0, 0, 0}
         };
 
-        int flow = maxFlow(graph, 0, 4);
-
-        System.out.println("\n===== NETWORK FLOW =====");
-        System.out.println("Source -> Supplier -> Pharmacy -> Patient -> Sink");
-        System.out.println("Maximum Medicine Flow: " + flow + " units");
-        System.out.println("Algorithm: Ford-Fulkerson");
+        System.out.println("Maximum possible supply flow: "
+                + maxFlow(capacity, 0, 3) + " units");
     }
 
+    // Module 6: Greedy 2-approximation for Vertex Cover
+    static void demonstrateVertexCover() {
+        int[][] edges = {
+            {0, 1},
+            {1, 2},
+            {2, 3},
+            {3, 0},
+            {1, 3}
+        };
 
-    // ==================== READ CORPUS ====================
+        boolean[] covered = new boolean[4];
+        Set<Integer> cover = new LinkedHashSet<>();
 
-    public static String readCorpus(String filePath) {
+        for (int[] edge : edges) {
+            int u = edge[0], v = edge[1];
 
-        StringBuilder corpus = new StringBuilder();
-
-        try {
-            BufferedReader reader =
-                    new BufferedReader(new FileReader(filePath));
-
-            String line;
-
-            while ((line = reader.readLine()) != null) {
-                corpus.append(line).append("\n");
-            }
-
-            reader.close();
-
-        } catch (IOException e) {
-            System.out.println("Error reading corpus file.");
-        }
-
-        return corpus.toString();
-    }
-
-
-    // ==================== DISPLAY SENTENCES ====================
-
-    public static void displaySentences(
-            String corpus, String query) {
-
-        String[] sentences =
-                corpus.split("(?<=[.!?])\\s+");
-
-        int count = 0;
-
-        for (String sentence : sentences) {
-
-            if (!KMPSearch(sentence, query).isEmpty()) {
-                count++;
-                System.out.println(count + ". " + sentence.trim());
+            if (!covered[u] && !covered[v]) {
+                cover.add(u);
+                cover.add(v);
+                covered[u] = true;
+                covered[v] = true;
             }
         }
 
-        if (count == 0)
-            System.out.println("No matching sentence found.");
+        System.out.println("Drug interaction review vertices: " + cover);
+        System.out.println("Review each selected vertex and its connected interactions.");
     }
 
-
-    // ==================== MAIN ====================
-
-    public static void main(String[] args) {
-
-        Scanner scanner = new Scanner(System.in);
-
-        String filePath = "data/pharma_corpus.txt";
-
-        String corpus = readCorpus(filePath);
-
-        if (corpus.isEmpty()) {
-            System.out.println("Corpus file could not be loaded.");
-            System.out.println("Check: data/pharma_corpus.txt");
-            scanner.close();
+    // Additional demonstration: Reservoir Sampling
+    static void demonstrateSampling(List<Medicine> medicines, int k) {
+        if (medicines.isEmpty() || k <= 0) {
+            System.out.println("No records available for sampling.");
             return;
         }
 
-        String[] medicines = {
-                "paracetamol",
-                "amoxicillin",
-                "ibuprofen",
-                "azithromycin",
-                "cetirizine",
-                "metformin",
-                "omeprazole",
-                "aspirin",
-                "diclofenac",
-                "atorvastatin",
-                "insulin",
-                "antibiotic",
-                "antacid"
-        };
+        k = Math.min(k, medicines.size());
+        List<Medicine> sample = new ArrayList<>();
+        Random random = new Random();
 
-        while (true) {
-
-            System.out.println("\n==============================");
-            System.out.println("        PHARMA SEARCH");
-            System.out.println("==============================");
-            System.out.println("1. Search Medicine using KMP");
-            System.out.println("2. Check Spelling using Edit Distance");
-            System.out.println("3. Calculate Network Flow");
-            System.out.println("4. Exit");
-            System.out.println("==============================");
-
-            System.out.print("Enter choice: ");
-            String choice = scanner.nextLine();
-
-            // KMP
-            if (choice.equals("1")) {
-
-                System.out.print("Enter medicine or keyword: ");
-                String query = scanner.nextLine();
-
-                ArrayList<Integer> result =
-                        KMPSearch(corpus, query);
-
-                System.out.println("\n===== KMP SEARCH =====");
-                System.out.println("Query: " + query);
-                System.out.println("Matches Found: " + result.size());
-
-                if (!result.isEmpty()) {
-                    System.out.println("Status: MATCH FOUND");
-                    System.out.println("\nMatching Sentences:");
-                    displaySentences(corpus, query);
-                } else {
-                    System.out.println("Status: NO MATCH FOUND");
-                }
-            }
-
-            // Edit Distance
-            else if (choice.equals("2")) {
-
-                System.out.print("Enter medicine name: ");
-                String query = scanner.nextLine();
-
-                checkSpelling(query, medicines);
-            }
-
-            // Network Flow
-            else if (choice.equals("3")) {
-
-                networkFlow();
-            }
-
-            // Exit
-            else if (choice.equals("4")) {
-
-                System.out.println(
-                        "Thank you for using Pharma Search!"
-                );
-                break;
-            }
-
-            else {
-                System.out.println("Invalid choice.");
+        for (int i = 0; i < medicines.size(); i++) {
+            if (i < k) {
+                sample.add(medicines.get(i));
+            } else {
+                int j = random.nextInt(i + 1);
+                if (j < k)
+                    sample.set(j, medicines.get(i));
             }
         }
 
-        scanner.close();
+        System.out.println("\nRandom quality-check sample:");
+        for (Medicine medicine : sample)
+            System.out.println("- " + medicine.name);
     }
-}
 
+    // Main menu
+    public static void main(String[] args) {
+        List<Medicine> medicines = loadCorpus();
+
+        if (medicines.isEmpty()) {
+            System.out.println("No medicine files were loaded.");
+            System.out.println("Check your folder and .txt files.");
+            return;
+        }
+
+        Scanner scanner = new Scanner(System.in);
+
+        while (true) {
+            System.out.println("\n===== PHARMA SEARCH SYSTEM =====");
+            System.out.println("1. Search medicine / keyword (KMP)");
+            System.out.println("2. Find closest medicine name (Edit Distance)");
+            System.out.println("3. Demonstrate supplier allocation (Max Flow)");
+            System.out.println("4. Demonstrate interaction review (Vertex Cover)");
+            System.out.println("5. Select random quality-check sample");
+            System.out.println("6. Show number of medicine records");
+            System.out.println("0. Exit");
+            System.out.print("Enter choice: ");
+
+            String choice = scanner.nextLine().trim();
+
+            switch (choice) {
+                case "1":
+                    System.out.print("Enter medicine name or keyword: ");
+                    searchMedicine(medicines, scanner.nextLine().trim());
+                    break;
+
+                case "2":
+                    System.out.print("Enter medicine name (or spelling): ");
+                    fuzzySearch(medicines, scanner.nextLine().trim());
+                    break;
+
+                case "3":
+                    demonstrateMaxFlow();
+                    break;
+
+                case "4":
+                    demonstrateVertexCover();
+                    break;
+
+                case "5":
+                    System.out.print("How many medicines to sample? ");
+                    try {
+                        int k = Integer.parseInt(scanner.nextLine().trim());
+                        demonstrateSampling(medicines, k);
+                    } catch (NumberFormatException e) {
+                        System.out.println("Please enter a valid whole number.");
+                    }
+                    break;
+
+                case "6":
+                    System.out.println("Total medicine records: "
+                            + medicines.size());
+                    break;
+
+                case "0":
+                    System.out.println("Exiting Pharma Search. Goodbye!");
+                    scanner.close();
+                    return;
+
+                default:
+                    System.out.println("Invalid choice. Try again.");
+            }
+        }
+    }
